@@ -44,12 +44,28 @@
             border-radius: 10px; /* زوايا مدورة للعداد */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* ظل للعداد */
         }
+        .message {
+            position: absolute; /* علشان تظهر جمب الضفدعة */
+            font-size: 1.5em;
+            color: #7d7c7c; /* لون الكلمة */
+            font-style: italic;
+            opacity: 0; /* الكلمة بتكون مخفية في البداية */
+            animation: fadeInOut 2s ease-in-out; /* انيميشن الظهور والاختفاء */
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; transform: translateX(20px); } /* بداية ونهاية الانيميشن */
+            50% { opacity: 1; transform: translateX(0); } /* منتصف الانيميشن */
+        }
     </style>
 </head>
 <body>
 
     <h1>يوسف عادل فاروق زين العابدين</h1>
-    <img src="https://i.imgur.com/vVsjW9D.jpeg" alt="ضفدعة" class="frog" onclick="incrementCounter()">
+    <div style="position: relative;">
+        <img src="https://i.imgur.com/vVsjW9D.jpeg" alt="ضفدعة" class="frog" onclick="incrementCounter()">
+        <div class="message" id="message"></div> <!-- الرسالة الجديدة -->
+    </div>
     <div class="counter" id="counter">0</div>
 
     <script>
@@ -58,6 +74,17 @@
         function incrementCounter() {
             count++; // زيادة العداد بواحد
             document.getElementById('counter').innerText = count; // تحديث العداد على الصفحة
+
+            // عرض الرسالة مع الانيميشن
+            const message = document.getElementById('message');
+            message.innerText = "حبيبي"; // تغيير النص
+            message.style.opacity = 1; // إظهار الرسالة
+
+            // إعادة تشغيل الانيميشن
+            message.style.animation = 'none';
+            setTimeout(() => {
+                message.style.animation = 'fadeInOut 2s ease-in-out';
+            }, 10);
         }
     </script>
 
