@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع الضفدعة</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #a8e6cf, #dcedc1); /* خلفية جرادينت */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* ظل للنص */
+        }
+        .frog {
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+            transition: transform 0.1s;
+            border-radius: 50%; /* جعل الصورة دائرية */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* ظل للصورة */
+        }
+        .frog:active {
+            transform: scale(0.95); /* تأثير الضغط على الضفدعة */
+        }
+        .counter {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* خلفية شبه شفافة للعداد */
+            padding: 10px 20px;
+            border-radius: 10px; /* زوايا مدورة للعداد */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* ظل للعداد */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>يوسف عادل فاروق زين العابدين</h1>
+    <img src="https://i.imgur.com/vVsjW9D.jpeg" alt="ضفدعة" class="frog" onclick="incrementCounter()">
+    <div class="counter" id="counter">0</div>
+
+    <script>
+        let count = 0; // متغير علشان نخزن عدد الضغطات
+
+        function incrementCounter() {
+            count++; // زيادة العداد بواحد
+            document.getElementById('counter').innerText = count; // تحديث العداد على الصفحة
+        }
+    </script>
+
+</body>
+</html>
